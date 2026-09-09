@@ -1,0 +1,6 @@
+interface:
+  display_name: "Large Task Orchestrator"
+  short_description: "Explicitly plan, track, and execute complex tasks to completion"
+  default_prompt: "Use $large-task-orchestrator for the following task; once the necessary information is ready, automatically create a persistent goal and execute until the entire outcome and every necessary acceptance criterion are satisfied:"
+policy:
+  allow_implicit_invocation: false
