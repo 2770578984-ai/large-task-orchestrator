@@ -1,0 +1,30 @@
+[
+  {
+    "id": "C09",
+    "title": "供应商台账迁移：验证参数补交",
+    "latest_user_message": "目标端的只读验证权限已开通，连接地址和映射表都放回原位置了。最终人工签字还没给。",
+    "initial_goal_status": "blocked",
+    "wait_reason": "external",
+    "input_ready": true,
+    "preparation_done": true,
+    "notice_delivered": false,
+    "resume_behavior": "unavailable",
+    "read_behavior": "ok",
+    "unchanged_block_turns": 0,
+    "latest_control": "none"
+  },
+  {
+    "id": "C10",
+    "title": "维修档案迁移：执行窗口已确认",
+    "latest_user_message": "执行窗口已经确认，解除我之前的暂停，现在恢复这次任务并完成本轮目标验证。最终人工验收仍由我后补。",
+    "initial_goal_status": "paused",
+    "wait_reason": "user_pause",
+    "input_ready": true,
+    "preparation_done": true,
+    "notice_delivered": true,
+    "resume_behavior": "success",
+    "read_behavior": "ok",
+    "unchanged_block_turns": 0,
+    "latest_control": "resume"
+  }
+]

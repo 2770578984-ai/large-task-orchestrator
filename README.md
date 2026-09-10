@@ -121,6 +121,8 @@ The package checks exercise installation of both languages, one discoverable ent
 
 Use the [recovery evaluation](tests/RECOVERY.md) and its synthetic cases to check missing resume controls, partial input, explicit pauses, limits, readback failures, and notification behavior. Record simulated decision checks separately from real host scheduling tests; no simulator establishes that the current host supports an automatic resume operation.
 
+That initial review evaluated only the revised skill and did not establish improvement over the old version. The [stateful A/B benchmark](tests/evals/README.md) compares committed versions through independent subagent execution and blind grading of real local artifacts and tool traces. See the [comparison report](reports/recovery-ab-evaluation.md) for measured results and limitations. Evaluation resources are development files and are not installed with the skill.
+
 The original Chinese edition was exercised with explicit and ordinary requests, analysis-only scope, state recovery, restricted goal tooling, and a real goal lifecycle from creation to completion. The two implementation fixtures passed 16 and 7 application tests; these were **23 fixture tests, not 23 independent skill scenarios**. Multi-hour runs, forced context compaction, and scheduling after app closure were not established by those checks. Raw private conversation traces are not included in this repository.
 
 ## Contributing and license

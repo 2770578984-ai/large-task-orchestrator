@@ -1,5 +1,9 @@
 # Recovery evaluation / 恢复流程评测
 
+This is a single-version synthetic decision review. Its earlier execution did not compare old and new skills. Use the [stateful A/B protocol](evals/README.md) to assess comparative behavior; neither method proves native unattended scheduling.
+
+本页是单版本合成决策检查；此前执行没有旧新版对照。评估相对效果时使用[有状态 A/B 评测](evals/README.md)，两者均不能代替真实宿主自动接续实测。
+
 Use [recovery-cases.json](recovery-cases.json) as synthetic inputs for an isolated evaluation of either language package. Give the evaluator the selected installed skill, these raw cases, and a request to produce an action trace, state changes, and a user-facing message for each case. Do not give the scoring table below to the evaluator before it acts. Do not access real accounts, resume live goals, or create actual goal tools for this exercise.
 
 将所选语言的安装包和合成情境交给独立评测者，要求逐例给出动作顺序、状态更新和对用户的说明；先不提供下方评分要求。情境中的恢复接口只属于模拟宿主，不能当作当前 Codex 已提供的工具。

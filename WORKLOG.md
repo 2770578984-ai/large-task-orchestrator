@@ -1,6 +1,6 @@
 # Work log / 工作记录
 
-Current: recovery handling updated, installed, and validated; native automatic resumption still depends on host support. 当前：恢复流程已更新、安装并验证，原生自动恢复仍取决于宿主能力。
+Current: recovery A/B evaluation complete; both revisions tied on 40 scored executions, with an audit-completeness limitation disclosed. No comparative improvement or native automatic resumption is established. 当前：恢复对照评测完成，40 份计分执行两版打平，已披露原审计完整性限制，未证明新版相对提升或原生自动接续。
 
 ## 2026-09-09
 
@@ -21,3 +21,13 @@ Current: recovery handling updated, installed, and validated; native automatic r
 - Independently reviewed 12 synthetic recovery decisions against their observable checks: unavailable resume operations, partial input, retained or explicitly released user pauses, host limits, active readback, timeout reconciliation, genuine blocking, readback failure, local blockers, and a success response with still-blocked readback. Kept missing returns unverified. 独立评测并复核 12 个合成恢复情境，覆盖上述分支；缺失返回保持未核验。
 - The evaluation identified ambiguous execution-mode examples and transient-failure notice timing; both language templates and references now clarify them. Synthetic inputs also distinguish post-recovery scheduling evidence from audit triggers. 根据评测补清执行模式示例、同轮异常提示合并及模拟调度证据的范围。
 - No live persistent goal or production task was used as a fixture. The current host exposes no permitted agent resume operation, so native automatic resumption and subsequent unattended scheduling were not validated. Simulated decisions and package discovery do not establish that capability. 未使用真实目标或生产任务作为夹具；当前宿主没有获准调用的恢复接口，原生自动恢复及后续无人催促调度未实测，模拟与发现检查不扩大这一结论。
+
+### Comparative evaluation / 旧新版效果对照
+
+- Correct the evidence boundary: the earlier 12-case review tested only the revised skill and did not demonstrate an advantage over the initial release. 明确此前 12 例是新版单独评测，不能证明比旧版更好。
+- Compare commits `39470af` and `755569a` using independent case design, masked skill snapshots, actual local CLI artifacts, and blind grading. Eight primary cases and two separately preregistered supplemental cases, two repetitions per version. 独立设计、冻结输入与评分，执行者不见版本身份，评分者不见技能。
+- Ten fresh execution agents performed 44 model-case executions: 40 scored observations and four original observations replaced by a paired infrastructure rerun. Both versions scored 16/16 primary and 4/4 supplemental passes, all 10/10; no critical failures, unnecessary user actions, or missing notices were observed in retained evidence. 两版主实验与补充实验均打平，未测得相对优势。
+- Fix a simulator concurrency defect with cross-process locking. Replay retained logs without changing original evidence; rerun both sides of the two cases with truncated logs using fresh agents. Replay is instrumentation validation, not more model samples. 修复审计并发问题，留存日志核验语义等价，损坏日志两版成对重跑，不虚增样本数。
+- Retained-log replay cannot independently rule out entirely missing original calls; full actor tool history was not cross-audited. Disclose this additional limit rather than treating the scores as strict superiority evidence. 披露原调用历史未独立逐项核对的完整性限制，回放一致不当作原始记录完整性证明。
+- Add the reusable benchmark, evidence exporter/replayer, fixture tests, comparison report, and aligned README evidence disclosures. Preserve runtime skill files; the installed Chinese package matches the evaluated candidate after normalizing existing resource links. 补齐评测与文档，运行时技能正文保留已发布修订，本机安装与候选核对一致。
+- Validation: 28 software tests and package checks passed. These are separate from the 40 scored behavioral executions. No live goals, production services, real UI controls or unattended scheduling were tested. 原始运行明细留在本地，不入公开仓库。
