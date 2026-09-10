@@ -86,9 +86,17 @@ The skill reuses an existing task-status section. If none exists, it creates a f
 
 State stays in the task's workspace, outside the installed skill. During recovery, Codex checks recorded decisions and actual files or runtime evidence before continuing. Old completion marks are not accepted when their evidence has become invalid.
 
+For a task waiting on external information, supplying the requested information triggers reassessment and continued authorized work without another skill invocation or “continue” message. Partially resolved dependencies stay scoped to the affected steps. A user instruction to remain paused, cancellation, or a usage limit still takes precedence.
+
+The task document separately records work progress, the actual host goal state, recovery capability, and any pending host action. If the conversation continues while the goal remains blocked, the skill explains the difference and the required recovery control immediately, retaining valid acceptance evidence and the original goal. An unchanged recovery notice is not repeated on every reply.
+
 ## Persistent goals and limits
 
 Some Codex hosts expose `get_goal`, `create_goal`, and `update_goal`. This skill inspects the current tool contracts, creates a goal only in the explicit invocation context, and reads back the actual state. It does not invent an API or a budget. Existing unfinished goals, pauses, and usage limits remain protected.
+
+**Automatic creation and automatic resumption are separate capabilities.** With a permitted resume operation, the skill resumes the existing goal and reads it back. With only the three tools above, `update_goal` cannot restore active status: resumption requires the host's goal control. Codex desktop provides Resume in the goal bar; `/goal resume` is available in interfaces that support that command. The skill continues authorized work in the current conversation and promptly explains that one host action is still needed for persistent continuation. Merely sending new information does not guarantee automatic goal resumption. See the [official goal controls](https://learn.chatgpt.com/docs/long-running-work).
+
+Automatic continuation is recorded as verified only after an actual subsequent goal turn performs necessary work without a further user message. An active readback alone is insufficient. While no turn is running, this skill cannot detect that external information changed or wake itself; it does not install a monitor.
 
 Installing a skill cannot provide missing runtime tools. Where goal tooling is unavailable, it records and explains that fact, preserves the task contract, and continues available work under the host and project instructions. A skill is not a background service and does not guarantee work after the app closes. See the [goal guide](https://learn.chatgpt.com/use-cases/follow-goals).
 
@@ -110,6 +118,8 @@ python scripts/validate.py
 ```
 
 The package checks exercise installation of both languages, one discoverable entry point, resource links, refusal to overwrite existing files, and invocation metadata. They do not prove model behavior or semantic equivalence of translations; those require review and isolated behavior checks.
+
+Use the [recovery evaluation](tests/RECOVERY.md) and its synthetic cases to check missing resume controls, partial input, explicit pauses, limits, readback failures, and notification behavior. Record simulated decision checks separately from real host scheduling tests; no simulator establishes that the current host supports an automatic resume operation.
 
 The original Chinese edition was exercised with explicit and ordinary requests, analysis-only scope, state recovery, restricted goal tooling, and a real goal lifecycle from creation to completion. The two implementation fixtures passed 16 and 7 application tests; these were **23 fixture tests, not 23 independent skill scenarios**. Multi-hour runs, forced context compaction, and scheduling after app closure were not established by those checks. Raw private conversation traces are not included in this repository.
 

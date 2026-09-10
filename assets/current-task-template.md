@@ -6,9 +6,12 @@
 - Absolute project path:
 - Absolute state entry point and section:
 - Last updated:
-- Overall status: Investigating / Waiting for required answers / Executing / Blocked / Complete (choose the actual state)
-- Execution mode: Unchecked / Persistent goal verified active / Fallback execution / Analysis only; on recovery, distinguish conversation execution from actual host goal state
+- Overall status: Investigating / Waiting for required answers / Executing / Blocked / Paused by user / Complete (choose the actual state)
+- Execution mode and reason: Describe actual execution, for example persistent goal execution, conversation execution while goal recovery or readback is pending, analysis only, user pause, or host limit. Do not label a pause or limit as fallback execution
 - Goal association: Tool-returned identifier or owning conversation; creation and readback results; factual cause if unavailable
+- Actual host goal state: Latest readback status, time, and evidence; use Unverified on read failure and retain the last known state separately
+- Recovery capability and pending action: Supported operation or host control; latest result; notice delivered when, why, and for which action (do not repeat unchanged notices)
+- Automatic continuation evidence: Unverified / Observed subsequent automatic goal turn and necessary work; active readback alone is not enough
 - Recovery: Read this entry point, applicable AGENTS.md, and latest user updates; verify the goal and actual facts, then resume the current step below
 
 ## 1. Background
@@ -73,6 +76,11 @@ Actions still required for the overall outcome and their acceptance IDs. Write N
 ## 14. Current blockers and newly found problems
 
 Write None if there are no blockers. Otherwise record the cause, required decision/access/input, affected steps, work that can continue, and the resumption point after resolution. Give ordinary solvable problems a handling step rather than presenting them as user blockers.
+
+| ID | Waiting cause: external dependency / user pause / host limit / failure | Required evidence or instruction to lift it | Affected steps / independent work | Open or resolved, with evidence | Recovery action |
+| --- | --- | --- | --- | --- | --- |
+
+Reassess these entries on relevant input or recovery. Keep valid unresolved dependencies and clear obsolete causes. A missing host resume control belongs in the goal recovery fields above; it does not block independent authorized work. Preserve the original goal and valid acceptance evidence.
 
 ## 15. Verification plan and results
 
