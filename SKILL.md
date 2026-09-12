@@ -15,7 +15,7 @@ Understand the current user objective, conversation context, confirmed decisions
 
 Separate facts, user decisions, engineering assumptions, and unknowns. Keep sources for important findings. If the task itself is missing, ask only for the actual request; do not invent a task or goal.
 
-Check whether these dimensions are clear enough for implementation. Explain inapplicable items instead of making the user answer a questionnaire:
+Check whether the relevant dimensions below are clear enough for implementation. Omit irrelevant items instead of making the user answer a questionnaire:
 
 - Final outcome, current state and problems, required behavior, observable effects, and behavior that must remain unchanged.
 - Technical, business, compatibility, performance, security, data, and environment constraints.
@@ -42,7 +42,7 @@ Select `STATE` in this order and record its absolute path and section in progres
 
 Give acceptance criteria stable IDs such as A1, observable pass conditions, a verification method, evidence, and an explicit Met / Not met result. Unverified criteria remain Not met with a reason; planned execution is not evidence. Cover normal behavior, necessary error paths, compatibility, and relevant regressions. Choose tests, builds, or real execution according to risk, avoiding unrelated checks.
 
-Use as many steps as the task needs. Record each step's status (Pending / In progress / Complete / Blocked), dependencies, acceptance IDs, and output. Adapt headings to an existing document without dropping required information.
+Use as many steps as the task needs. Record each step's status (Pending / In progress / Complete / Blocked), dependencies, acceptance IDs, and output. Merge the template's core facts into an existing document, keeping each status, progress item, and validation result in one place. Expand optional detail only for relevant dependencies, decisions, or recovery problems; do not mechanically fill every block.
 
 ## 4. Start persistent goal execution automatically
 

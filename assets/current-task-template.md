@@ -1,99 +1,42 @@
 # Current large task
 
-<!-- Fill with investigated facts, or merge this information into the existing task section. Remove these prompts. Never deliver an empty template. -->
+<!-- Fill this template or merge its core facts into an existing task section. Adapt headings and tables. Omit irrelevant optional blocks without filling each with "not applicable". -->
 
-- Task identity / owning conversation:
-- Absolute project path:
-- Absolute state entry point and section:
-- Last updated:
-- Overall status: Investigating / Waiting for required answers / Executing / Blocked / Paused by user / Complete (choose the actual state)
-- Execution mode and reason: Describe actual execution, for example persistent goal execution, conversation execution while goal recovery or readback is pending, analysis only, user pause, or host limit. Do not label a pause or limit as fallback execution
-- Goal association: Tool-returned identifier or owning conversation; creation and readback results; factual cause if unavailable
-- Actual host goal state: Latest readback status, time, and evidence; use Unverified on read failure and retain the last known state separately
-- Recovery capability and pending action: Supported operation or host control; latest result; notice delivered when, why, and for which action (do not repeat unchanged notices)
-- Automatic continuation evidence: Unverified / Observed subsequent automatic goal turn and necessary work; active readback alone is not enough
-- Recovery: Read this entry point, applicable AGENTS.md, and latest user updates; verify the goal and actual facts, then resume the current step below
+- Task identity, owning conversation, and absolute project path:
+- Absolute state entry point / section and last update:
+- Overall status, actual execution mode, and reason:
 
-## 1. Background
+## Outcome, requirements, and boundaries
 
-Why the task exists, the problem, and the relevant system state. Identify the original request and retain its essential meaning.
+Record the original request and user-observable final outcome, required and protected behavior, essential background and sources, exclusions, and authorization for this task. Record consequential user decisions and non-blocking assumptions when they change implementation or acceptance, with their source distinguished. Do not invent constraints or store credentials.
 
-## 2. Final outcome
+## Acceptance and evidence
 
-The user-observable result and overall completion boundary. Preserve the original outcome; record an explicit user decision if it changes.
+| ID | Observable pass condition and necessary verification method | Met / Not met | Actual evidence, environment / time, or reason not met |
+|---|---|---|---|
 
-## 3. Current state
+Distinguish not run from failed, and implementation from testing, real execution, deployment, and business acceptance. Link detailed commands and outputs instead of maintaining another duplicate results table.
 
-Initial system and code state, existing implementation, known problems and constraints, and changes since then. Link evidence for important facts. Distinguish implemented, tested, executed, and deployed.
+## Plan and current progress
 
-## 4. Confirmed requirements
+| Step | Action and output | Necessary dependencies / acceptance IDs | Status and evidence |
+|---|---|---|---|
 
-| ID | Required behavior or deliverable | Source: user decision or evidence | Acceptance IDs |
-| --- | --- | --- | --- |
+- Current specific action and recovery position:
+- Remaining necessary work (None only when complete):
 
-## 5. Out of scope
+Use as many steps as the task needs. Keep completed and in-progress states in the same table. Record factual reasons for plan changes without weakening acceptance criteria.
 
-Explicit exclusions and neighboring work that this task should not expand into.
+## Blockers and recovery
 
-## 6. Constraints
+Write None if there are no blockers. Otherwise record the cause, evidence or instruction required to lift it, affected steps, independent work that can continue, and resumption action. Distinguish external dependencies, user pauses, host limits, and failures that can be repaired. Clear obsolete causes when new information arrives while preserving valid constraints.
 
-Technical, business, compatibility, performance, security, data, environment, and user constraints; protected behavior; external systems and authorization for high-impact actions. Explain inapplicable items instead of inventing requirements. Never record credentials or sensitive operational details.
+When a persistent goal is involved, retain its identity, latest readback state, time and evidence, and any difference between execution mode and goal state. Mark failed readback Unverified while retaining the last known state.
 
-## 7. Confirmed user decisions
+For a pause, blockage, or recovery failure, add supported recovery capabilities, pending user / host action, notice time and content, and recovery results. Do not repeat unchanged notices. Missing host resume controls do not block independent authorized work. Never treat a user pause or usage limit as a technical failure that permits fallback execution.
 
-| ID | Decision and source | Impact | Subsequent explicit changes, if any |
-| --- | --- | --- | --- |
+Record observed subsequent automatic turns only when automatic continuation needs verification. Reading back active does not prove automatic continuation.
 
-## 8. Non-blocking assumptions adopted by Codex
+## Completion review
 
-| ID | Assumption and basis | Impact | When to verify or revise |
-| --- | --- | --- | --- |
-
-## 9. Acceptance criteria
-
-| ID | Observable pass condition | Verification method | Result: Met / Not met | Actual evidence or reason not met |
-| --- | --- | --- | --- | --- |
-
-## 10. Execution plan
-
-| Step | Action and output | Dependencies | Acceptance IDs | Status: Pending / In progress / Complete / Blocked |
-| --- | --- | --- | --- | --- |
-
-Record necessary plan changes and their factual reasons without weakening the outcome or acceptance criteria.
-
-## 11. Current progress
-
-Current step, specific work in progress, and the next executable action. Leave an accurate recovery position before interruption.
-
-## 12. Completed work
-
-Actually completed work and evidence links; do not duplicate entire logs.
-
-## 13. Remaining work
-
-Actions still required for the overall outcome and their acceptance IDs. Write None when complete.
-
-## 14. Current blockers and newly found problems
-
-Write None if there are no blockers. Otherwise record the cause, required decision/access/input, affected steps, work that can continue, and the resumption point after resolution. Give ordinary solvable problems a handling step rather than presenting them as user blockers.
-
-| ID | Waiting cause: external dependency / user pause / host limit / failure | Required evidence or instruction to lift it | Affected steps / independent work | Open or resolved, with evidence | Recovery action |
-| --- | --- | --- | --- | --- | --- |
-
-Reassess these entries on relevant input or recovery. Keep valid unresolved dependencies and clear obsolete causes. A missing host resume control belongs in the goal recovery fields above; it does not block independent authorized work. Preserve the original goal and valid acceptance evidence.
-
-## 15. Verification plan and results
-
-| Acceptance IDs | Command or actual operation and environment | Expected result | Actual result / evidence / time | Repair and re-verification status |
-| --- | --- | --- | --- | --- |
-
-Choose appropriate tests, builds, compilation, static or type checks, functional, error-path, compatibility, integration, runtime, or regression validation. Distinguish not run from run and failed.
-
-## Overall completion review
-
-- Original outcome and latest decisions agree:
-- Every necessary acceptance criterion has supporting evidence:
-- Remaining necessary work and unresolved problems:
-- Known limitations or unresolvable issues and their impact:
-- Actual persistent goal state and readback evidence, or factual unavailability:
-- Delivery conclusion: Complete / Incomplete, based on the facts above
+Compare the original outcome and latest user decisions with every necessary acceptance criterion, remaining work and blockers, known limitations, and the goal's actual state. Record the final conclusion with evidence. Continue executable necessary work that remains; a stage deliverable is not overall completion.

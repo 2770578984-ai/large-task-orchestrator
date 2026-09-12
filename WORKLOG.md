@@ -1,6 +1,6 @@
 # Work log / 工作记录
 
-Current: recovery A/B evaluation complete; both revisions tied on 40 scored executions, with an audit-completeness limitation disclosed. No comparative improvement or native automatic resumption is established. 当前：恢复对照评测完成，40 份计分执行两版打平，已披露原审计完整性限制，未证明新版相对提升或原生自动接续。
+Current: bilingual task templates streamlined with optional detail; recovery policy unchanged. 当前：中英文任务模板已精简，细节按需展开，恢复规则保留。 Prior recovery A/B evaluation complete; both revisions tied on 40 scored executions, with an audit-completeness limitation disclosed. No comparative improvement or native automatic resumption is established. 当前：恢复对照评测完成，40 份计分执行两版打平，已披露原审计完整性限制，未证明新版相对提升或原生自动接续。
 
 ## 2026-09-09
 
@@ -31,3 +31,9 @@ Current: recovery A/B evaluation complete; both revisions tied on 40 scored exec
 - Retained-log replay cannot independently rule out entirely missing original calls; full actor tool history was not cross-audited. Disclose this additional limit rather than treating the scores as strict superiority evidence. 披露原调用历史未独立逐项核对的完整性限制，回放一致不当作原始记录完整性证明。
 - Add the reusable benchmark, evidence exporter/replayer, fixture tests, comparison report, and aligned README evidence disclosures. Preserve runtime skill files; the installed Chinese package matches the evaluated candidate after normalizing existing resource links. 补齐评测与文档，运行时技能正文保留已发布修订，本机安装与候选核对一致。
 - Validation: 28 software tests and package checks passed. These are separate from the 40 scored behavioral executions. No live goals, production services, real UI controls or unattended scheduling were tested. 原始运行明细留在本地，不入公开仓库。
+
+## 2026-09-12
+
+- Reduce the bilingual task templates to core goal, acceptance, plan, blockers and completion fields. Expand runtime-goal, recovery and unattended-continuation evidence only when relevant; keep identity, evidence and authorization requirements. 中英文任务模板保留核心状态，运行时目标、恢复和自动续轮证据按需展开，身份、证据和授权边界保留。
+- Align both skill entrypoints and synchronize the selected-language local installation. Explicit-only UI metadata and persistent-goal references are unchanged. 同步双语入口与本机选定语言安装版；显式调用元数据及恢复规则原文未改。
+- Validation: package validation and 28 software tests passed. Independent forward reading exercises the compact template; this is not a new recovery A/B comparison or evidence of native automatic resumption. 包检查和 28 项软件测试通过；独立前向阅读覆盖简化模板，不作为新的恢复对照、质量提升或原生自动恢复证明。
