@@ -1,6 +1,6 @@
 # Work log / 工作记录
 
-Current: bilingual task templates streamlined with optional detail; recovery policy unchanged. 当前：中英文任务模板已精简，细节按需展开，恢复规则保留。 Prior recovery A/B evaluation complete; both revisions tied on 40 scored executions, with an audit-completeness limitation disclosed. No comparative improvement or native automatic resumption is established. 当前：恢复对照评测完成，40 份计分执行两版打平，已披露原审计完整性限制，未证明新版相对提升或原生自动接续。
+Current: startup alignment is explicit in both languages and the installed Chinese skill. The main comparison scored 49/50 versus 50/50, with both versions passing five cases; only one acceptance-communication gain was observed. 当前：双语技能及本机中文版已增加启动前信息对齐，主对照仅测得一处验收沟通改善，不能据此宣称全面提升。 Recovery policy is unchanged; its earlier A/B comparison tied and did not establish native automatic resumption. 恢复规则保留，此前恢复对照打平，未证明原生自动接续。
 
 ## 2026-09-09
 
@@ -37,3 +37,12 @@ Current: bilingual task templates streamlined with optional detail; recovery pol
 - Reduce the bilingual task templates to core goal, acceptance, plan, blockers and completion fields. Expand runtime-goal, recovery and unattended-continuation evidence only when relevant; keep identity, evidence and authorization requirements. 中英文任务模板保留核心状态，运行时目标、恢复和自动续轮证据按需展开，身份、证据和授权边界保留。
 - Align both skill entrypoints and synchronize the selected-language local installation. Explicit-only UI metadata and persistent-goal references are unchanged. 同步双语入口与本机选定语言安装版；显式调用元数据及恢复规则原文未改。
 - Validation: package validation and 28 software tests passed. Independent forward reading exercises the compact template; this is not a new recovery A/B comparison or evidence of native automatic resumption. 包检查和 28 项软件测试通过；独立前向阅读覆盖简化模板，不作为新的恢复对照、质量提升或原生自动恢复证明。
+
+## 2026-09-13
+
+- Make startup alignment visible after investigation and before implementation: explain the outcome, scope, acceptance, important sources, assumptions, and unresolved decisions. 调查后、实施前向用户对齐信息，不能只写任务文档或宣布开始。
+- Distinguish current implementation from requested behavior. Do not silently preserve an old feature or retire an omitted one without sufficient decision evidence. 已有明确决定时直接落实，重要取舍未明确时集中询问；信息充分后自动执行，恢复时复用已有对齐。
+- Align the English/Chinese skill, UI prompt, template, and README, and synchronize the existing selected-language installation after checking and backing it up. 同步双语资源及本机安装，保留显式调用、授权边界和目标恢复规则。
+- Add independently designed startup-alignment cases, a local observation tool, and isolated old/new execution. Results and limits are recorded in [the comparison report](reports/alignment-evaluation.md). 增加独立案例设计及旧新版隔离执行，对照结果与限制以报告为准。
+- Main blind grading found 49/50 versus 50/50: one improvement in communicating acceptance before implementation, equal pass counts. Two exploratory executions did not test strict zero-file-write behavior because the frozen case permitted analysis records; a review using pre-freeze draft wording was corrected and its unnecessary rule removed. Ten scored cases, twelve total model-case executions; the delivered runtime matches the main candidate. 主评测仅一处验收沟通改善；纠正混用案例草稿的复核误判，两次追加运行不计为新增通过或只读保证，运行时回到主评测快照。
+- Validation: 28 software tests, package/link checks, Skill Creator validation, installation parity, and actual app-server discovery passed. Observation records matched final files; execution logs and frozen hashes remained intact. No GitHub push or live business operation was performed. 验证通过；日志、备份和机器路径不入库，本轮未推送或操作业务系统。

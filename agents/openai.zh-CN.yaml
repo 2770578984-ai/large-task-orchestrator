@@ -1,6 +1,6 @@
 interface:
   display_name: "大型任务编排"
-  short_description: "仅显式调用：调查需求、建立验收与任务状态，并自动衔接持久目标执行"
-  default_prompt: "使用 $large-task-orchestrator 处理以下大型任务；必要信息齐备后，请自动创建持久目标并开始执行，直到整体目标和全部必要验收标准满足："
+  short_description: "仅显式调用：实施前对齐目标、范围与验收，再自动衔接持久目标执行"
+  default_prompt: "使用 $large-task-orchestrator 处理以下大型任务；先调查并向我对齐目标、范围、验收和必要决策，信息齐备后自动创建持久目标并执行，直到整体目标和全部必要验收标准满足："
 policy:
   allow_implicit_invocation: false

@@ -10,6 +10,8 @@
 
 Record the original request and user-observable final outcome, required and protected behavior, essential background and sources, exclusions, and authorization for this task. Record consequential user decisions and non-blocking assumptions when they change implementation or acceptance, with their source distinguished. Do not invent constraints or store credentials.
 
+Retain the startup alignment communicated to the user and its basis; record choices and sources for differences between old and new behavior when relevant. Keep unanswered necessary decisions and their impact pending, and update them in place when answered. Do not label assumptions as user confirmation. This record does not replace communicating before implementation.
+
 ## Acceptance and evidence
 
 | ID | Observable pass condition and necessary verification method | Met / Not met | Actual evidence, environment / time, or reason not met |

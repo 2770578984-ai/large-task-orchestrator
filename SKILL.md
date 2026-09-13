@@ -1,6 +1,6 @@
 ---
 name: large-task-orchestrator
-description: Use only when the user explicitly invokes $large-task-orchestrator, selects Large Task Orchestrator, or asks to use this skill. Turn a complex request into a task definition, acceptance criteria, a plan, and recoverable state through investigation and necessary decisions, then start persistent goal execution when ready. Do not activate for ordinary complex tasks, status questions, or a mere mention of the name.
+description: Use only when the user explicitly invokes $large-task-orchestrator, selects Large Task Orchestrator, or asks to use this skill. Investigate and align the outcome, scope, acceptance, and necessary decisions with the user before establishing a task definition, plan, and recoverable state and starting persistent goal execution. Do not activate for ordinary complex tasks, status questions, or a mere mention of the name.
 ---
 
 # Large Task Orchestrator
@@ -22,13 +22,23 @@ Check whether the relevant dimensions below are clear enough for implementation.
 - External systems, real accounts, high-impact dependencies, and the authorization granted for this task.
 - Included and excluded scope, and how completion will be demonstrated.
 
-## 2. Ask only for decisions the user must make
+## 2. Align information with the user before implementation
+
+After investigation and before the first implementation action, briefly communicate the following understanding to the user. Writing it only in a task file or announcing that work has started is insufficient. Adapt it to the available information rather than reciting a full checklist:
+
+- The final deliverable, included and excluded scope, and how it will be accepted.
+- Consequential existing decisions and their sources; for a refactor or takeover, important differences between the new requirements and current implementation and the proposed behavior to retain, replace, or retire.
+- Reasonable engineering assumptions, decisions still needed from the user, and the affected steps. Keep missing outcome or acceptance information explicitly unresolved instead of inventing confirmed requirements.
+
+Existing code establishes current behavior, not a user requirement to preserve it. A feature missing from a new design does not automatically authorize its removal either. Apply the user's latest explicit decisions for this task; ask a specific tradeoff question when a consequential product difference remains unresolved by the available context. Never promote an unconfirmed product choice into a constraint or acceptance criterion.
 
 Resolve information available through investigation and routine choices consistent with the existing architecture yourself. File locations, naming, ordinary implementation, error handling, tool choice, and appropriate validation are engineering decisions.
 
 Ask only about consequential product behavior, business rules, compatibility or data-structure choices, authorization boundaries, or required access and information that cannot reasonably be inferred. Check decisions and permissions already given in this task before asking again. Use established secure authorization channels for credentials; never put them in the task document.
 
 Batch currently known, independent questions wherever possible. Explain each decision's importance, affected work, main options and tradeoffs, and a recommended choice with its reason when appropriate. Distinguish work that must wait for an answer from work that can proceed on a recorded assumption. Never replace a required answer with a default or timeout. Continue independent investigation and preparation while waiting. Ask follow-up questions when new evidence requires them, not as a sequence of minor implementation questions.
+
+If no answer is required, explain the basis and adopted assumptions, then proceed automatically after this alignment. When answers arrive, record the decisions and their effects in the same task state and continue authorized work. On recovery, reuse the existing alignment and communicate only new differences affecting the outcome or boundaries, without repeating the startup interview.
 
 ## 3. Establish one recoverable task entry point
 
@@ -46,7 +56,7 @@ Use as many steps as the task needs. Record each step's status (Pending / In pro
 
 ## 4. Start persistent goal execution automatically
 
-Once investigation is sufficient, the complete definition, acceptance criteria, and plan exist, necessary decisions have answers, and no genuine blocker prevents starting, follow [persistent goal integration](references/persistent-goals.md). Check runtime tools, create or reuse the goal, read back the result, and execute the first unfinished step. Continue independent work when only part of the task is blocked.
+Once the startup alignment has been communicated to the user, the complete definition, acceptance criteria, and plan exist, necessary decisions have answers, and no genuine blocker prevents starting, follow [persistent goal integration](references/persistent-goals.md). Check runtime tools, create or reuse the goal, read back the result, and execute the first unfinished step. Continue independent work when only part of the task is blocked.
 
 The task document is not an approval gate. Do not ask whether to start, approve the entire plan, or enter the next stage. If the user explicitly requests analysis and a plan only, deliver that scope without creating an implementation goal or changing the implementation. Respect runtime restrictions; this skill cannot bypass read-only or Plan mode.
 

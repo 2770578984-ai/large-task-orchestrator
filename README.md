@@ -4,12 +4,12 @@
 
 An **explicit-only Codex skill** that turns a complex request into a complete task definition, verifiable acceptance criteria, an execution plan, and recoverable task state. When the current host supports persistent goals, it creates one and starts working without another request to continue.
 
-You describe the outcome and answer decisions that only you can make. Codex investigates the project, fills in the task document, and carries the authorized work through implementation and verification.
+You describe the initial request and answer decisions that only you can make. Codex investigates the project, communicates its understanding of the outcome, scope, and acceptance before implementation, then fills in the task document and carries the authorized work through implementation and verification.
 
 ```mermaid
 flowchart LR
     A[Explicit invocation] --> B[Investigate context]
-    B --> C[Resolve necessary decisions]
+    B --> C[Align with the user and resolve necessary decisions]
     C --> D[Define outcome, acceptance and state]
     D --> E[Start a persistent goal if available]
     E --> F[Implement, verify and repair]
@@ -21,6 +21,7 @@ flowchart LR
 ## What it does
 
 - Investigates existing context, implementation, tests, configuration, and project rules before asking questions.
+- Communicates the outcome, scope, acceptance, important sources, and open decisions before implementation; compares new requirements with existing behavior during a refactor.
 - Asks only consequential questions that cannot be answered through investigation or reasonable engineering judgment.
 - Maintains one current task entry point, preferably in the project's existing status document.
 - Tracks acceptance criteria with evidence, decisions, assumptions, progress, remaining work, and blockers.
@@ -68,6 +69,8 @@ and complete the migration and necessary verification.
 ```
 
 Invoking the skill explicitly requests automatic persistent-goal creation once the task is ready. You do not need a separate goal command. A request such as “analyze and plan only; do not implement yet” keeps the work within that scope.
+
+The startup alignment is communicated to you, not just saved in a task file. With sufficient existing decisions, Codex explains its basis and proceeds automatically. Unresolved consequential product choices are asked together and the affected work waits for the required answers, while independent investigation and preparation continue. An existing feature is not automatically a preservation requirement, and its absence from a new design is not permission to delete it. Codex uses your explicit decisions and task materials first, asking only about remaining ambiguity. Recovery of the same task communicates new differences without requesting approval of the entire plan again.
 
 Both language packages use the same internal name. `SKILL.md` is the English entry point; `SKILL.zh-CN.md` is the Chinese source. The installer places the chosen version at the required `SKILL.md` filename. It does not install two competing skills or load both languages at once.
 
@@ -122,6 +125,8 @@ The package checks exercise installation of both languages, one discoverable ent
 Use the [recovery evaluation](tests/RECOVERY.md) and its synthetic cases to check missing resume controls, partial input, explicit pauses, limits, readback failures, and notification behavior. Record simulated decision checks separately from real host scheduling tests; no simulator establishes that the current host supports an automatic resume operation.
 
 That initial review evaluated only the revised skill and did not establish improvement over the old version. The [stateful A/B benchmark](tests/evals/README.md) compares committed versions through independent subagent execution and blind grading of real local artifacts and tool traces. See the [comparison report](reports/recovery-ab-evaluation.md) for measured results and limitations. Evaluation resources are development files and are not installed with the skill.
+
+The separate [startup-alignment benchmark](tests/evals/alignment/README.md) checks communication before implementation, necessary questions, explicit decisions, and analysis-only boundaries using isolated configuration projects. Its [comparison report](reports/alignment-evaluation.md) distinguishes observed results from limits of the small sample and local communication proxy.
 
 The original Chinese edition was exercised with explicit and ordinary requests, analysis-only scope, state recovery, restricted goal tooling, and a real goal lifecycle from creation to completion. The two implementation fixtures passed 16 and 7 application tests; these were **23 fixture tests, not 23 independent skill scenarios**. Multi-hour runs, forced context compaction, and scheduling after app closure were not established by those checks. Raw private conversation traces are not included in this repository.
 
